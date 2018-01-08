@@ -1,5 +1,7 @@
 package com.mysteam.entity;
 
+import java.util.List;
+
 public class User {
     private Integer userId;
 
@@ -14,6 +16,26 @@ public class User {
     private Double balance;
 
     private String company;
+
+    private List<User> buddyList;
+
+    private List<Game> wishList;
+
+    public List<Game> getWishList() {
+        return wishList;
+    }
+
+    public void setWishList(List<Game> wishList) {
+        this.wishList = wishList;
+    }
+
+    public List<User> getBuddyList() {
+        return buddyList;
+    }
+
+    public void setBuddyList(List<User> buddyList) {
+        this.buddyList = buddyList;
+    }
 
     public Integer getUserId() {
         return userId;

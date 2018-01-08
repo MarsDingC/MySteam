@@ -74,4 +74,26 @@
         <property name="service" ref="gameService"/>
     </bean>
 
+
+
+    <bean id="userDao" class="com.mysteam.dao.UserDao" scope="prototype"/>
+    <bean id="testService" class="com.mysteam.service.TestService" scope="prototype">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="testAction" class="com.mysteam.action.TestAction" scope="prototype">
+        <property name="service" ref="testService"/>
+    </bean>
+    <bean id="followService" class="com.mysteam.service.FollowService" scope="prototype">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="followAction" class="com.mysteam.action.FollowAction" scope="prototype">
+        <property name="service" ref="followService"/>
+    </bean>
+    <bean id="wishService" class="com.mysteam.service.WishService" scope="prototype">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <bean id="wishAction" class="com.mysteam.action.WishAction" scope="prototype">
+        <property name="wishService" ref="wishService"/>
+    </bean>
+
 </beans>

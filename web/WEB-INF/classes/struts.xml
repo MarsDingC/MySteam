@@ -12,5 +12,17 @@
             <result name="input">/dvlpr_apply_add.jsp</result>
             <result name="error">/dvlpr_apply_add.jsp</result>
         </action>
+        <action name="testAction" class="testAction" method="test">
+            <result name="success">buddylist.jsp</result>
+        </action>
+        <action name="followAction" class="followAction" method="insertBuddy">
+            <result name="success">buddylist.jsp</result>
+        </action>
+        <action name="cancelFollowAction" class="followAction" method="deleteBuddy">
+            <result name="success">buddylist.jsp</result>
+        </action>
+        <action name="wishAction" class="wishAction" method="userWish">
+            <result name="success">userpage.jsp</result>
+        </action>
     </package>
 </struts>
