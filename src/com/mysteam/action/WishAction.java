@@ -11,16 +11,10 @@ import java.util.List;
  */
 public class WishAction {
     WishService wishService;
-    int loginUserId,userId;
-    User user,loginUser;
+    int userId;
+    User user;
 
-    public int getLoginUserId() {
-        return loginUserId;
-    }
 
-    public void setLoginUserId(int loginUserId) {
-        this.loginUserId = loginUserId;
-    }
 
     public int getUserId() {
         return userId;
@@ -47,19 +41,11 @@ public class WishAction {
         this.user = user;
     }
 
-    public User getLoginUser() {
-        return loginUser;
-    }
 
-    public void setLoginUser(User loginUser) {
-        this.loginUser = loginUser;
-    }
 
     public String userWish(){
         user=wishService.find(userId);
-        loginUser=wishService.find(loginUserId);
         user.setWishList(wishService.findWishList(userId));
-
         return "success";
     }
 }

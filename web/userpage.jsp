@@ -12,7 +12,7 @@
     <title>个人主页</title>
 </head>
 <body>
-这里是${user.account}的主页，愿圣光保佑你，${loginUser.account}<br>
+这里是${user.account}的主页，愿圣光保佑你，${session.loginUser.account}<br>
 <table border=1>
     <s:iterator value="user.wishList" var="game">
         <tr>

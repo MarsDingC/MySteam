@@ -2,6 +2,9 @@ package com.mysteam.action;
 
 import com.mysteam.entity.User;
 import com.mysteam.service.TestService;
+import com.opensymphony.xwork2.ActionContext;
+
+import java.util.Map;
 
 /**
  * Created by MarsDingC on 2018/1/8.
@@ -9,7 +12,7 @@ import com.mysteam.service.TestService;
 public class TestAction {
     TestService service;
     User loginuser;
-
+    private Map<String, Object> session;
     public TestService getService() {
         return service;
     }
@@ -27,7 +30,10 @@ public class TestAction {
     }
 
     public String test(){
+        ActionContext ctx = ActionContext.getContext();
+        session = ctx.getSession();
         loginuser=service.test(773854587);
+        session.put("loginUser", loginuser);
         return "success";
     }
 

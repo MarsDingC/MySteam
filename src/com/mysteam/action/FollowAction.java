@@ -16,8 +16,8 @@ public class FollowAction {
     }
 
     FollowService service;
-    int userId, followUserId, loginuserId;
-    User loginuser;
+    int userId, followUserId;
+
 
     public int getUserId() {
         return userId;
@@ -35,21 +35,7 @@ public class FollowAction {
         this.followUserId = followUserId;
     }
 
-    public int getLoginuserId() {
-        return loginuserId;
-    }
 
-    public void setLoginuserId(int loginuserId) {
-        this.loginuserId = loginuserId;
-    }
-
-    public User getLoginuser() {
-        return loginuser;
-    }
-
-    public void setLoginuser(User loginuser) {
-        this.loginuser = loginuser;
-    }
 
     public String insertBuddy() {
         service.insertBuddy(userId, followUserId);
@@ -58,7 +44,6 @@ public class FollowAction {
 
     public String deleteBuddy() {
         service.deleteBuddy(userId, followUserId);
-        loginuser =service.find(loginuserId);
         return "success";
     }
 
