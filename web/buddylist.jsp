@@ -24,22 +24,38 @@
 <br>
 <br>
 <div align="center">
-<s:property value="#session.loginUser.account"/>的好友列表<br>
-<table border=1>
-    <tr>
-        <th>用户名</th>
-        <th>用户ID</th>
-    </tr>
-    <s:iterator value="#session.loginUser.buddyList" var="user">
+    <s:property value="nowUser.account"/>的关注列表<br>
+    <table border=1>
         <tr>
-            <td><a href="./wishAction?userId=${user.userId}">${user.account}</a></td>
-            <td><s:property value="userId"/></td>
-            <td>
-                <a href="./cancelFollowAction?userId=${user.userId}&followUserId=${session.loginser.userId}">取消关注</a>
-            </td>
+            <th>用户名</th>
+            <th>用户ID</th>
         </tr>
-    </s:iterator>
-</table>
+        <s:iterator value="nowUser.buddyList" var="user">
+            <tr>
+                <td><a href="./wishAction?userId=${user.userId}">${user.account}</a></td>
+                <td><s:property value="userId"/></td>
+                <td>
+                    <a href="./cancelFollowAction?userId=${user.userId}&followUserId=${nowUser.userId}">取消关注</a>
+                </td>
+            </tr>
+        </s:iterator>
+    </table>
+    <s:property value="nowUser.account"/>的被关注列表<br>
+    <table border=1>
+        <tr>
+            <th>用户名</th>
+            <th>用户ID</th>
+        </tr>
+        <s:iterator value="nowUser.fansList" var="user">
+            <tr>
+                <td><a href="./wishAction?userId=${user.userId}">${user.account}</a></td>
+                <td><s:property value="userId"/></td>
+                <td>
+                    <a href="./followAction?userId=${user.userId}&followUserId=${nowUser.userId}">关注</a>
+                </td>
+            </tr>
+        </s:iterator>
+    </table>
 </div>
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.mysteam.service;
 
 import com.mysteam.dao.UserDao;
 import com.mysteam.entity.User;
+import com.mysteam.model.TestUser;
 
 /**
  * Created by MarsDingC on 2018/1/8.
@@ -24,7 +25,8 @@ public class FollowService {
     public void deleteBuddy(int userId, int followUserId){
         userDao.deleteBuddy(userId,followUserId);
     }
-    public User find(int userId){
+    public User findUser(int userId){
+
         return userDao.findTest(userId);
     }
 }

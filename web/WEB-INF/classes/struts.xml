@@ -16,6 +16,9 @@
         <action name="testAction" class="testAction" method="test">
             <result name="success">buddylist.jsp</result>
         </action>
+        <action name="showBuddyAction" class="followAction" method="showBuddyList">
+            <result name="success">buddylist.jsp</result>
+        </action>
         <action name="followAction" class="followAction" method="insertBuddy">
             <result name="success">buddylist.jsp</result>
         </action>

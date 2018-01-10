@@ -33,6 +33,10 @@ public class UserDao {
         return mapper.selectByPrimaryKey(userId);
     }
 
+
+    /*
+    TODO Mars' UserDao
+     */
     public void insertBuddy(int userId, int followUserId){
         //TODO 关注用户方法
     }
@@ -48,12 +52,23 @@ public class UserDao {
     }
     public List<User> findBuddyByUserId(Integer userId){
         //TODO 查询用户好友列表
-        ArrayList<User> buddyList= new ArrayList<>();
+        List<User> buddyList= new ArrayList<>();
+        List<User> userList=TestUser.userList;
+        for(int i=0;i<userList.size();i++){
+            if(userList.get(i).getUserId()==userId){
+                System.out.println("11111111111111111111111");
+                System.out.println("11111111111111111111111");
+                System.out.println("11111111111111111111111");
+                System.out.println("11111111111111111111111");
+                buddyList=userList.get(i).getBuddyList();
+                break;
+            }
+        }
         return buddyList;
     }
 
     public List<Game> findWishByUserId(Integer userId){
-        //TODO 查询用户好友列表
+        //TODO 查询用户愿望单列表
         List<Game> wishList= new ArrayList<>();
         List<User> userList=TestUser.userList;
         for(int i=0;i<userList.size();i++){

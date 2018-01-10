@@ -17,7 +17,8 @@ public class TestUser {
         user.setAccount("cca");
         user.setBalance(998.0);
 
-        ArrayList<User> buddyList= new ArrayList<>();
+        ArrayList<User> buddyList= new ArrayList<>(),
+                fansList=new ArrayList<>();
         User user1=new User();
         User user2=new User();
         User user3=new User();
@@ -30,6 +31,9 @@ public class TestUser {
         buddyList.add(user1);
         buddyList.add(user2);
         buddyList.add(user3);
+        fansList.add(user1);
+        fansList.add(user2);
+        fansList.add(user3);
         Game game1=new Game();
         game1.setGameName("尼尔·机械纪元");
         game1.setPrice(413.0);
@@ -62,6 +66,13 @@ public class TestUser {
         user3.setWishList(wishList3);
 
         user.setBuddyList(buddyList);
+        user.setFansList(fansList);
+        user1.setBuddyList(buddyList);
+        user1.setFansList(fansList);
+        user2.setBuddyList(buddyList);
+        user2.setFansList(fansList);
+        user3.setBuddyList(buddyList);
+        user3.setFansList(fansList);
         userList.add(user);
         userList.add(user1);
         userList.add(user2);

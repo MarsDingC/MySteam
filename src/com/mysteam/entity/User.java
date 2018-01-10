@@ -19,7 +19,18 @@ public class User {
 
     private List<User> buddyList;
 
+
+    private List<User> fansList;
+
     private List<Game> wishList;
+
+    public List<User> getFansList() {
+        return fansList;
+    }
+
+    public void setFansList(List<User> fansList) {
+        this.fansList = fansList;
+    }
 
     public List<Game> getWishList() {
         return wishList;

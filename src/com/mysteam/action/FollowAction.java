@@ -18,6 +18,16 @@ public class FollowAction {
     FollowService service;
     int userId, followUserId;
 
+    public User getNowUser() {
+        return nowUser;
+    }
+
+    public void setNowUser(User nowUser) {
+        this.nowUser = nowUser;
+    }
+
+    User nowUser;
+
 
     public int getUserId() {
         return userId;
@@ -35,15 +45,20 @@ public class FollowAction {
         this.followUserId = followUserId;
     }
 
-
+    public String showBuddyList(){
+        nowUser=service.findUser(userId);
+        return "success";
+    }
 
     public String insertBuddy() {
         service.insertBuddy(userId, followUserId);
+        nowUser=service.findUser(followUserId);
         return "success";
     }
 
     public String deleteBuddy() {
         service.deleteBuddy(userId, followUserId);
+        nowUser=service.findUser(followUserId);
         return "success";
     }
 

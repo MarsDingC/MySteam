@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class TestAction {
     TestService service;
-    User loginuser;
+    User loginuser,nowUser;
     private Map<String, Object> session;
     public TestService getService() {
         return service;
@@ -29,11 +29,21 @@ public class TestAction {
         this.loginuser = loginuser;
     }
 
+    public User getNowUser() {
+        return nowUser;
+    }
+
+    public void setNowUser(User nowUser) {
+        this.nowUser = nowUser;
+    }
+
     public String test(){
         ActionContext ctx = ActionContext.getContext();
         session = ctx.getSession();
         loginuser=service.test(773854587);
         session.put("loginUser", loginuser);
+        nowUser=loginuser;
+
         return "success";
     }
 
