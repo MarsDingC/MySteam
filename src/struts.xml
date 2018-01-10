@@ -12,6 +12,7 @@
             <result name="input">/dvlpr_apply_add.jsp</result>
             <result name="error">/dvlpr_apply_add.jsp</result>
         </action>
+        <!--TODO Mars' Action-->
         <action name="testAction" class="testAction" method="test">
             <result name="success">buddylist.jsp</result>
         </action>
@@ -23,6 +24,36 @@
         </action>
         <action name="wishAction" class="wishAction" method="userWish">
             <result name="success">userpage.jsp</result>
+        </action>
+
+        <!--TODO Bro_Bear's Action-->
+        <action name="userReviewAction" class="com.mysteam.action.UserReviewAction" method="pl">
+            <result name="plsuccess">/aGame.jsp</result>
+            <!--<result name="logfail">/login.jsp</result>-->
+            <!--<result name="input">/login.jsp</result>-->
+        </action>
+        <action name="userManageAction" class="com.mysteam.action.UserManageAction" method="go">
+            <!--<result name="noLogin">/login.jsp</result>-->
+            <result name="go">/userManage.jsp</result>
+        </action>
+        <action name="selectGameAction" class="com.mysteam.action.SelectGameAction" method="getGame">
+            <result name="success">/aGame.jsp</result>
+            <result name="nofind">/userManage.jsp</result>
+        </action>
+
+        <action name="streamDownloadAction" class="com.mysteam.action.StreamDownloadAction" method="execute">
+            <!-- 以stream二进制流的方式打开 -->
+            <result name="success" type="stream">
+                <!-- 指明文件的下载类型 -->
+                <param name="contentType">application/octet-stream</param>
+                <!-- 指明如果取得需要下载文件的InputStream输入流 -->
+                <param name="inputName">fileStream</param>
+                <!-- 指明让浏览器以下载框的方式打开 -->
+                <param name="contentDisposition">attachment;filename=${fileName}</param>
+                <!-- 指明下载文件时的缓存字符数组byte[]大小 -->
+                <param name="bufferSize">1024</param>
+                <param name="allowCaching">true</param>
+            </result>
         </action>
     </package>
 </struts>

@@ -25,9 +25,19 @@ public class GameDao {
         return game.getGameId();
     }
 
-    public Game findByGameId(Integer gameId) {
-        return gameMapper.selectByPrimaryKey(gameId);
+    public Game findByGameId(Integer gameId) {//TODO Bro_Bear'sfindByGameId
+//        GameMapper mapper = getGameMapper();
+        Game game=new Game();
+        game.setGameId(gameId);
+        game.setGameName("game2");
+        return game;
+//        return mapper.selectByPrimaryKey(gameId);
     }
+
+
+//    public Game findByGameId(Integer gameId) {
+//        return gameMapper.selectByPrimaryKey(gameId);
+//    }
 
     public List<Game> findByType(String type, int page, int pageSize) {
         return gameMapper.selectByType(type, (page - 1) * pageSize, pageSize);

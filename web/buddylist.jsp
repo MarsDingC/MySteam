@@ -10,8 +10,20 @@
 <html>
 <head>
     <title>好友列表</title>
+    <link rel="stylesheet" href="assets/css/dvlpr_main.css">
+    <link rel="stylesheet" href="assets/css/form.css">
+    <link rel="stylesheet" href="assets/css/button.css">
 </head>
 <body>
+<%@include file="header_lib.jsp" %>
+
+<div class="banner">
+    <h1 align="center">好友中心</h1>
+    <%--<hr style="height:1px;border:none;border-top:1px ridge #51ff08;"/>--%>
+</div>
+<br>
+<br>
+<div align="center">
 <s:property value="#session.loginUser.account"/>的好友列表<br>
 <table border=1>
     <tr>
@@ -28,5 +40,6 @@
         </tr>
     </s:iterator>
 </table>
+</div>
 </body>
 </html>

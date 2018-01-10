@@ -75,7 +75,7 @@
     </bean>
 
 
-
+    <!--TODO Mars' Bean-->
     <bean id="userDao" class="com.mysteam.dao.UserDao" scope="prototype"/>
     <bean id="testService" class="com.mysteam.service.TestService" scope="prototype">
         <property name="userDao" ref="userDao"/>
@@ -95,5 +95,53 @@
     <bean id="wishAction" class="com.mysteam.action.WishAction" scope="prototype">
         <property name="wishService" ref="wishService"/>
     </bean>
+    <!--TODO Bro_Bear's Bean-->
+    <bean id="review" class="com.mysteam.entity.Review" scope="prototype">
+        <!--todo id自增-->
+    </bean>
+    <bean id="reviewDao" class="com.mysteam.dao.ReviewDao" scope="prototype"/>
+    <bean id="myWriter" class="com.mysteam.service.MyWriter"><!--单例-->
+        <property name="address" value="badwords"/>
+    </bean>
+    <bean id="userReviewService" class="com.mysteam.service.UserReviewService">
+        <property name="reviewDao" ref="reviewDao"/>
+        <property name="myWriter" ref="myWriter"/>
+    </bean>
+    <bean id="userReviewAction" class="com.mysteam.action.UserReviewAction" scope="prototype">
+        <property name="review" ref="review"/>
+        <property name="userReviewService" ref="userReviewService"/>
+    </bean>
+
+    <bean id="gameOrderDao" class="com.mysteam.dao.GameOrderDao" scope="prototype">
+        <!--todo-->
+    </bean>
+    <bean id="userManageService" class="com.mysteam.service.UserManageService" scope="prototype">
+        <property name="gameOrderDao" ref="gameOrderDao"/>
+    </bean>
+    <bean id="userManageAction" class="com.mysteam.action.UserManageAction" scope="prototype">
+        <property name="userManageService" ref="userManageService"/>
+    </bean>
+
+    <!--<bean id="gameDao" class="com.mysteam.dao.GameDao" scope="prototype">-->
+        <!--&lt;!&ndash;todo&ndash;&gt;-->
+    <!--</bean>-->
+    <bean id="selectGameService" class="com.mysteam.service.SelectGameService" scope="prototype">
+        <property name="gameDao" ref="gameDao"/>
+    </bean>
+    <bean id="selectReviewService" class="com.mysteam.service.SelectReviewService" scope="prototype">
+        <property name="reviewDao" ref="reviewDao"/>
+    </bean>
+    <bean id="selectGameAction" class="com.mysteam.action.SelectGameAction" scope="prototype">
+        <property name="selectGameService" ref="selectGameService"/>
+        <property name="selectReviewService" ref="selectReviewService"/>
+    </bean>
+
+    <bean id="streamDownloadService" class="com.mysteam.service.StreamDownloadService">
+        <property name="gameOrderDao" ref="gameOrderDao"/>
+    </bean>
+    <bean id="streamDownloadAction" class="com.mysteam.action.StreamDownloadAction" scope="prototype">
+    <property name="streamDownloadService" ref="streamDownloadService"/>
+    </bean>
+
 
 </beans>

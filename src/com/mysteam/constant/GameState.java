@@ -26,5 +26,6 @@ public class GameState {
     public static final short DOWNLOADED = 2;
     //可更新
     public static final short UPDATABLE = 3;
-
+    //文件根目录
+    public static final String GAME_STORAGE_PATH="/";
 }
